@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YRentalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BranchTable">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Branch_Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Branch_Adress" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CarListTable">
+          <Key>
+            <PropertyRef Name="Car_ID" />
+          </Key>
+          <Property Name="Car_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Car_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Kilometer" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Undamaged" Type="int" Nullable="false" />
+          <Property Name="Available" Type="int" Nullable="false" />
+          <Property Name="Car_number" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="Branch_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarTypeTable">
+          <Key>
+            <PropertyRef Name="Car_Type_ID" />
+          </Key>
+          <Property Name="Car_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Manufactor_Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Model" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price_PerDay" Type="int" Nullable="false" />
+          <Property Name="Price_Delay" Type="int" Nullable="false" />
+          <Property Name="Production_Year" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Gear" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Car_ID" Type="int" Nullable="false" />
+          <Property Name="Start_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Return_Estimate_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Returm_Real_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_ID" Type="int" />
+          <Property Name="Order_Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Type" Type="int" Nullable="false" />
+          <Property Name="First_Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDay" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nchar" MaxLength="100" />
+          <Property Name="User_Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="YRentalDBModelStoreContainer">
+          <EntitySet Name="BranchTable" EntityType="Self.BranchTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarListTable" EntityType="Self.CarListTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarTypeTable" EntityType="Self.CarTypeTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YRentalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="YRentalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BranchTables" EntityType="YRentalDBModel.BranchTable" />
+          <EntitySet Name="CarListTables" EntityType="YRentalDBModel.CarListTable" />
+          <EntitySet Name="CarTypeTables" EntityType="YRentalDBModel.CarTypeTable" />
+          <EntitySet Name="OrdersTables" EntityType="YRentalDBModel.OrdersTable" />
+          <EntitySet Name="sysdiagrams" EntityType="YRentalDBModel.sysdiagram" />
+          <EntitySet Name="UserTables" EntityType="YRentalDBModel.UserTable" />
+        </EntityContainer>
+        <EntityType Name="BranchTable">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="Branch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Branch_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Branch_Adress" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CarListTable">
+          <Key>
+            <PropertyRef Name="Car_ID" />
+          </Key>
+          <Property Name="Car_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Car_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Kilometer" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Undamaged" Type="Int32" Nullable="false" />
+          <Property Name="Available" Type="Int32" Nullable="false" />
+          <Property Name="Car_number" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Branch_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarTypeTable">
+          <Key>
+            <PropertyRef Name="Car_Type_ID" />
+          </Key>
+          <Property Name="Car_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Manufactor_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Price_PerDay" Type="Int32" Nullable="false" />
+          <Property Name="Price_Delay" Type="Int32" Nullable="false" />
+          <Property Name="Production_Year" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Gear" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Car_ID" Type="Int32" Nullable="false" />
+          <Property Name="Start_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Return_Estimate_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Returm_Real_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_ID" Type="Int32" />
+          <Property Name="Order_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Type" Type="Int32" Nullable="false" />
+          <Property Name="First_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Last_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YRentalDBModelStoreContainer" CdmEntityContainer="YRentalDBEntities">
+          <EntitySetMapping Name="BranchTables">
+            <EntityTypeMapping TypeName="YRentalDBModel.BranchTable">
+              <MappingFragment StoreEntitySet="BranchTable">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Branch_Adress" ColumnName="Branch_Adress" />
+                <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarListTables">
+            <EntityTypeMapping TypeName="YRentalDBModel.CarListTable">
+              <MappingFragment StoreEntitySet="CarListTable">
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Car_number" ColumnName="Car_number" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Undamaged" ColumnName="Undamaged" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Kilometer" ColumnName="Kilometer" />
+                <ScalarProperty Name="Car_Type_ID" ColumnName="Car_Type_ID" />
+                <ScalarProperty Name="Car_ID" ColumnName="Car_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarTypeTables">
+            <EntityTypeMapping TypeName="YRentalDBModel.CarTypeTable">
+              <MappingFragment StoreEntitySet="CarTypeTable">
+                <ScalarProperty Name="Gear" ColumnName="Gear" />
+                <ScalarProperty Name="Production_Year" ColumnName="Production_Year" />
+                <ScalarProperty Name="Price_Delay" ColumnName="Price_Delay" />
+                <ScalarProperty Name="Price_PerDay" ColumnName="Price_PerDay" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufactor_Name" ColumnName="Manufactor_Name" />
+                <ScalarProperty Name="Car_Type_ID" ColumnName="Car_Type_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersTables">
+            <EntityTypeMapping TypeName="YRentalDBModel.OrdersTable">
+              <MappingFragment StoreEntitySet="OrdersTable">
+                <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Returm_Real_Date" ColumnName="Returm_Real_Date" />
+                <ScalarProperty Name="Return_Estimate_Date" ColumnName="Return_Estimate_Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="Car_ID" ColumnName="Car_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YRentalDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTables">
+            <EntityTypeMapping TypeName="YRentalDBModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

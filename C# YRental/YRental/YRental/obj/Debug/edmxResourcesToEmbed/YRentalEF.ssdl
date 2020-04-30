@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YRentalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BranchTable">
+    <Key>
+      <PropertyRef Name="Branch_ID" />
+    </Key>
+    <Property Name="Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Branch_Name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Branch_Adress" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CarListTable">
+    <Key>
+      <PropertyRef Name="Car_ID" />
+    </Key>
+    <Property Name="Car_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Car_Type_ID" Type="int" Nullable="false" />
+    <Property Name="Kilometer" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Undamaged" Type="int" Nullable="false" />
+    <Property Name="Available" Type="int" Nullable="false" />
+    <Property Name="Car_number" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="Branch_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarTypeTable">
+    <Key>
+      <PropertyRef Name="Car_Type_ID" />
+    </Key>
+    <Property Name="Car_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Manufactor_Name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Model" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Price_PerDay" Type="int" Nullable="false" />
+    <Property Name="Price_Delay" Type="int" Nullable="false" />
+    <Property Name="Production_Year" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gear" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdersTable">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Car_ID" Type="int" Nullable="false" />
+    <Property Name="Start_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Return_Estimate_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Returm_Real_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="Order_Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Type" Type="int" Nullable="false" />
+    <Property Name="First_Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirthDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="User_Name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="YRentalDBModelStoreContainer">
+    <EntitySet Name="BranchTable" EntityType="Self.BranchTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarListTable" EntityType="Self.CarListTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarTypeTable" EntityType="Self.CarTypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
