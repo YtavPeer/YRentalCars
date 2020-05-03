@@ -33,22 +33,30 @@ namespace YRental.Controllers
         }
 
         // PUT: api/Orders/5
-        public void Put(int id, [FromBody]int CarId, string StartDate, string ReturnEstimateDate, string ReturnRealTime, int UserId, string OrderStatus)
+
+        [HttpPut]
+        public void Put(int id, [FromBody]OrdersTable u1)
         {
-            OrdersTable o = YRentDB.OrdersTables.FirstOrDefault(o1 => o1.Order_ID == id);
-            if (o != null) 
+            OrdersTable u =YRentDB.OrdersTables.FirstOrDefault(f => f.Order_ID == id);
+            if (u != null) 
             {
-                o.Car_ID = CarId;
-                o.Start_Date = StartDate;
-                o.Return_Estimate_Date = ReturnEstimateDate;
-                o.Returm_Real_Date = ReturnRealTime;
-                o.User_ID = UserId;
-                o.Order_Status = OrderStatus;
+                u.Car_ID = u1.Car_ID;
+                u.Start_Date = u1.Start_Date;
+                u.Return_Estimate_Date = u1.Return_Estimate_Date;
+                u.Return_Real_Date = u1.Return_Real_Date;
+                u.User_ID = u1.User_ID;
+                u.Order_Status = u1.Order_Status;
+                u.Car_Number = u1.Car_Number;
+                u.Number_Of_Days = u1.Number_Of_Days;
+                u.Price_PerDay = u1.Price_PerDay;
+                u.Estimate_Cost = u1.Estimate_Cost;
+                u.Number_Of_Delay = u1.Number_Of_Delay;
+                u.PricePerDelay = u1.PricePerDelay;
+                u.Total_Cost = u1.Total_Cost;
                 YRentDB.SaveChanges();     
             }
-
         }
-
+        
         // DELETE: api/Orders/5
         public void Delete(int id)
         {

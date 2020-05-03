@@ -34,22 +34,24 @@ namespace YRental.Controllers
         }
 
         // PUT: api/MainCars/5
-        public void Put(int id, [FromBody]int CarTypeId, string Kilometer, string Picture, int Undamaged, int Available, string CarNumber, int BranchId)
+        [HttpPut]
+        public void Put(int id, [FromBody]CarListTable u1)
         {
-            CarListTable c = YRentDB.CarListTables.FirstOrDefault(c1 => c1.Car_ID == id);
-            if( c != null) 
+            CarListTable u = YRentDB.CarListTables.FirstOrDefault(f => f.Car_ID == id);
+            if( u != null) 
             {
-                c.Car_Type_ID = CarTypeId;
-                c.Kilometer = Kilometer;
-                c.Picture = Picture;
-                c.Undamaged = Undamaged;
-                c.Available = Available;
-                c.Car_number = CarNumber;
-                c.Branch_ID = BranchId;
+                u.Car_Type_ID =u1.Car_Type_ID;
+                u.Kilometer = u1.Kilometer;
+                u.Picture = u1.Picture;
+                u.Undamaged = u1.Undamaged;
+                u.Available = u1.Available;
+                u.Car_number = u1.Car_number;
+                u.Branch_ID = u1.Branch_ID;
                 YRentDB.SaveChanges();
             
             }
         }
+
 
         // DELETE: api/MainCars/5
         public void Delete(int id)

@@ -41,9 +41,16 @@
     <EntitySetMapping Name="OrdersTables">
       <EntityTypeMapping TypeName="YRentalDBModel.OrdersTable">
         <MappingFragment StoreEntitySet="OrdersTable">
+          <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+          <ScalarProperty Name="PricePerDelay" ColumnName="PricePerDelay" />
+          <ScalarProperty Name="Number_Of_Delay" ColumnName="Number_Of_Delay" />
+          <ScalarProperty Name="Estimate_Cost" ColumnName="Estimate_Cost" />
+          <ScalarProperty Name="Price_PerDay" ColumnName="Price_PerDay" />
+          <ScalarProperty Name="Number_Of_Days" ColumnName="Number_Of_Days" />
+          <ScalarProperty Name="Car_Number" ColumnName="Car_Number" />
           <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
           <ScalarProperty Name="User_ID" ColumnName="User_ID" />
-          <ScalarProperty Name="Returm_Real_Date" ColumnName="Returm_Real_Date" />
+          <ScalarProperty Name="Return_Real_Date" ColumnName="Return_Real_Date" />
           <ScalarProperty Name="Return_Estimate_Date" ColumnName="Return_Estimate_Date" />
           <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
           <ScalarProperty Name="Car_ID" ColumnName="Car_ID" />

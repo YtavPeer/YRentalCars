@@ -42,9 +42,16 @@
     <Property Name="Car_ID" Type="int" Nullable="false" />
     <Property Name="Start_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Return_Estimate_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Returm_Real_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="User_ID" Type="int" />
-    <Property Name="Order_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Return_Real_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Car_Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Number_Of_Days" Type="int" Nullable="false" />
+    <Property Name="Price_PerDay" Type="int" Nullable="false" />
+    <Property Name="Estimate_Cost" Type="int" Nullable="false" />
+    <Property Name="Number_Of_Delay" Type="int" />
+    <Property Name="PricePerDelay" Type="int" />
+    <Property Name="Total_Cost" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -62,13 +69,13 @@
     </Key>
     <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="User_Type" Type="int" Nullable="false" />
-    <Property Name="First_Name" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Last_Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Gender" Type="nvarchar" MaxLength="50" />
     <Property Name="BirthDay" Type="nvarchar" MaxLength="50" />
-    <Property Name="Email" Type="nchar" MaxLength="100" />
-    <Property Name="User_Name" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Picture" Type="nvarchar(max)" />
   </EntityType>
   <EntityContainer Name="YRentalDBModelStoreContainer">

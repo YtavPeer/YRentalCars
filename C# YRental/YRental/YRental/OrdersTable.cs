@@ -18,8 +18,15 @@ namespace YRental
         public int Car_ID { get; set; }
         public string Start_Date { get; set; }
         public string Return_Estimate_Date { get; set; }
-        public string Returm_Real_Date { get; set; }
-        public Nullable<int> User_ID { get; set; }
+        public string Return_Real_Date { get; set; }
+        public int User_ID { get; set; }
         public string Order_Status { get; set; }
+        public string Car_Number { get; set; }
+        public int Number_Of_Days { get; set; }
+        public int Price_PerDay { get; set; }
+        public int Estimate_Cost { get; set; }
+        public Nullable<int> Number_Of_Delay { get; set; }
+        public Nullable<int> PricePerDelay { get; set; }
+        public int Total_Cost { get; set; }
     }
 }
