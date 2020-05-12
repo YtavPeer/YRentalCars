@@ -13,8 +13,8 @@
       <PropertyRef Name="Branch_ID" />
     </Key>
     <Property Name="Branch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Branch_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-    <Property Name="Branch_Adress" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Branch_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_Adress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CarListTable">
@@ -23,11 +23,11 @@
     </Key>
     <Property Name="Car_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Car_Type_ID" Type="Int32" Nullable="false" />
-    <Property Name="Kilometer" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Kilometer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Undamaged" Type="Int32" Nullable="false" />
     <Property Name="Available" Type="Int32" Nullable="false" />
-    <Property Name="Car_number" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="Car_number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Branch_ID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="CarTypeTable">
@@ -35,12 +35,12 @@
       <PropertyRef Name="Car_Type_ID" />
     </Key>
     <Property Name="Car_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Manufactor_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-    <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Manufactor_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Price_PerDay" Type="Int32" Nullable="false" />
     <Property Name="Price_Delay" Type="Int32" Nullable="false" />
-    <Property Name="Production_Year" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-    <Property Name="Gear" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Production_Year" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Gear" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="OrdersTable">
     <Key>

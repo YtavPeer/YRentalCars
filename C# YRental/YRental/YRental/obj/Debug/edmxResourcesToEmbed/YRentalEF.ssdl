@@ -5,8 +5,8 @@
       <PropertyRef Name="Branch_ID" />
     </Key>
     <Property Name="Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Branch_Name" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="Branch_Adress" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Branch_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Branch_Adress" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Location" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="CarListTable">
@@ -15,11 +15,11 @@
     </Key>
     <Property Name="Car_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Car_Type_ID" Type="int" Nullable="false" />
-    <Property Name="Kilometer" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Kilometer" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Undamaged" Type="int" Nullable="false" />
     <Property Name="Available" Type="int" Nullable="false" />
-    <Property Name="Car_number" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="Car_number" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Branch_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CarTypeTable">
@@ -27,12 +27,12 @@
       <PropertyRef Name="Car_Type_ID" />
     </Key>
     <Property Name="Car_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Manufactor_Name" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="Model" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Manufactor_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Price_PerDay" Type="int" Nullable="false" />
     <Property Name="Price_Delay" Type="int" Nullable="false" />
-    <Property Name="Production_Year" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="Gear" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Production_Year" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gear" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="OrdersTable">
     <Key>

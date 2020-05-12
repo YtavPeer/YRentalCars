@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using YRental.Models;
 
 namespace YRental.Controllers
 {
@@ -26,6 +27,9 @@ namespace YRental.Controllers
         }
 
         // POST: api/Orders
+
+        //validation--only the user name and password that login can book  11.5.20 change
+        [ClassValid]
         public void Post([FromBody]OrdersTable O1)
         {
             YRentDB.OrdersTables.Add(O1);
